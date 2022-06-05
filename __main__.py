@@ -1,6 +1,7 @@
 from functools import reduce
 from math import sqrt
 from random import random
+import data
 
 def e_distance(A: list):
     return reduce(lambda p, x: p+sqrt(pow(x-A.index(x), 2)), A)
@@ -46,7 +47,14 @@ def A():
 
 def main():
     choice = input('Generate new datasets (y/n): ').lower()
-    print(choice)
+    if choice == 'y':
+        data.clear()
+        # TODO (von-vic): Generate new datasets and store them into a folder called
+        # `shuffles`
+        pass
+    else:
+        # TODO (von-vic): Read from the `shuffles` folder.
+        pass
 
 if __name__ == '__main__':
     main()
