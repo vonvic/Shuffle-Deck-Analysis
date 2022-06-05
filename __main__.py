@@ -2,6 +2,8 @@ import data
 import deck
 import graph
 
+AVG_FILE_NAME = 'averages.txt'
+
 def request_int(msg: str) -> int:
     '''Requests a number from the user with a default value'''
     default = 100
@@ -21,6 +23,9 @@ def request_shuffle_count() -> int:
 def request_test_repeat_count() -> int:
     return request_int('Test repeat count')
 
+def delta(A: list):
+    return [abs(A[i]-A[i+1]) for i in range(len(A)-1)]
+
 def main():
     choice = input('Generate new datasets (y/n): ').lower()
     averages: list
@@ -32,14 +37,17 @@ def main():
         repeat_count = request_test_repeat_count()
 
         averages = deck.generate_averages(shuffle_count, repeat_count)
-        data.insert('averages.txt', averages)
+        data.insert(AVG_FILE_NAME, averages)
     elif choice == 'n' or choice == 'no':
-        averages = data.read('averages.txt')
+        averages = data.read(AVG_FILE_NAME)
     else:
         raise ValueError(f'{choice} is not a valid choice')
-    print(averages)
+
     title = 'Measure of the Effect of Number of Riffle Shuffles on Randomizing A Deck'
     graph.plot(averages, title, 'Shuffle Count', 'Average of sortedness (lower is more sorted)')
+    graph.plot(delta(averages), title, 'Shuffle Count', 'Absolute change of deck sortnedness')
+
+    input('Press ENTER to exit')
 
 if __name__ == '__main__':
     main()

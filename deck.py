@@ -40,6 +40,9 @@ def generate_averages(shuffle_count, repeat_count):
     'sortedness' will be added to to the average list at its corresponding
     location. (e.g. the 6th shuffle will have its sortedness added to
     `averages[6]`.'''
+
+    print("Generating new datasets...")
+    
     sorted_deck = [i for i in range(52)]
     deck = sorted_deck[:]
 

@@ -8,6 +8,7 @@ import sys
 
 def insert(file: str, data: list) -> bool:
     '''Inserts `data` into a file called `file`.'''
+    print(f'Writing to shuffles/{file}')
     try:
         with open(f'shuffles/{file}', 'w') as f:
             for x in data:
@@ -20,6 +21,7 @@ def insert(file: str, data: list) -> bool:
 def read(file: str) -> list:
     '''Reads data from `file` and returns a list of 2-length tuples.'''
 
+    print(f'Reading from shuffles/{file}')
     data: list
     with open(f'shuffles/{file}', 'r') as f:
         data = [float(x[:-1]) for x in f.readlines()]
