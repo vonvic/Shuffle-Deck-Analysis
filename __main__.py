@@ -54,6 +54,7 @@ def main():
         data.insert('0.txt', [(1,2)])
         pass
     else:
+        print(data.read('0.txt'))
         # TODO (von-vic): Read from the `shuffles` folder.
         pass
 

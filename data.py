@@ -15,7 +15,10 @@ def clear():
     [remove(file) for file in os.listdir(shuffle_dir)]
 
 def insert(file: str, data: list) -> bool:
-    '''Inserts `data` into a file called `file`.'''
+    '''Inserts `data` into a file called `file`.
+    
+    data: list
+        Contains a list of 2-length tuples.'''
     try:
         with open(f'shuffles/{file}', 'w') as f:
             for card, sortedness in data:
@@ -26,5 +29,9 @@ def insert(file: str, data: list) -> bool:
         return False
 
 def read(file: str) -> list:
-    '''Reads data from `file` and returns it'''
-    pass
+    '''Reads data from `file` and returns a list of 2-length tuples.'''
+
+    data: list
+    with open(f'shuffles/{file}', 'r') as f:
+        data = [tuple(line[:-1].split(',')) for line in f.readlines()]
+    return data
