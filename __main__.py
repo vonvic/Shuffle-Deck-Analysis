@@ -1,3 +1,12 @@
+'''
+Author: Cayas, Von Vic
+Date: Sunday, June 5 2022
+Description: A program to generate and analyze the effect of riffle shuffling a
+    standard 52 deck of cards. After obtaining data (whether stored previously
+    or generated at runtime), two plots will be made:
+        - shows the average euclidean distances
+        - shows the differences between two average eucilidean distances
+'''
 import data
 import deck
 import graph
