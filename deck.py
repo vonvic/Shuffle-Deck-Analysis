@@ -26,7 +26,8 @@ def _shuffle(A: list):
         value = random()
         
         chosen: int
-        if value < 0.5:
+        cutoff = len(fst)/(len(fst)+len(snd))
+        if value < cutoff:
             chosen = fst.pop(0) if fst else snd.pop(0)
         else:
             chosen = snd.pop(0) if snd else fst.pop(0)
