@@ -1,5 +1,6 @@
 import data
 import deck
+import graph
 
 def request_int(msg: str) -> int:
     '''Requests a number from the user with a default value'''
@@ -7,7 +8,7 @@ def request_int(msg: str) -> int:
     num = input(f"{msg} (default: {default}): ")
     if not num: # default
         num = default
-    elif not num.isdigit(): #
+    elif not num.isdigit():
         raise ValueError(f'{num} is not a number.')
     else:
         num = int(num)
@@ -37,6 +38,8 @@ def main():
     else:
         raise ValueError(f'{choice} is not a valid choice')
     print(averages)
+    title = 'Measure of the Effect of Number of Riffle Shuffles on Randomizing A Deck'
+    graph.plot(averages, title, 'Shuffle Count', 'Average of sortedness (lower the better)')
 
 if __name__ == '__main__':
     main()

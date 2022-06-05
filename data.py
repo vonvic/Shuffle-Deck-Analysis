@@ -4,7 +4,6 @@ Date: Sunday, June 5 2022
 Description: Functions used for file operations to insert/read card data in files
              in the `shuffles` folder.
 '''
-import os
 import sys
 
 def insert(file: str, data: list) -> bool:
@@ -23,5 +22,5 @@ def read(file: str) -> list:
 
     data: list
     with open(f'shuffles/{file}', 'r') as f:
-        data = [x[:-1] for x in f.readlines()]
+        data = [float(x[:-1]) for x in f.readlines()]
     return data
