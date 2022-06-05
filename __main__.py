@@ -1,62 +1,42 @@
-from functools import reduce
-from math import sqrt
-from random import random
 import data
+import deck
 
-def e_distance(A: list):
-    return reduce(lambda p, x: p+sqrt(pow(x-A.index(x), 2)), A)
+def request_int(msg: str) -> int:
+    '''Requests a number from the user with a default value'''
+    default = 100
+    num = input(f"{msg} (default: {default}): ")
+    if not num: # default
+        num = default
+    elif not num.isdigit(): #
+        raise ValueError(f'{num} is not a number.')
+    else:
+        num = int(num)
+    
+    return num
 
-def shuffle(A: list):
-    mid = len(A)//2
-    fst, snd = A[:mid], A[mid:]
-    
-    new_list = []
-    for i in range(len(A)):
-        value = random()
-        
-        chosen: int
-        if value < 0.5:
-            chosen = fst.pop(0) if fst else snd.pop(0)
-        else:
-            chosen = snd.pop(0) if snd else fst.pop(0)
-        new_list.append(chosen)
-        
-    return new_list
+def request_shuffle_count() -> int:
+    return request_int('Shuffle count')
 
-def print_sorted_measurement(A: list):
-    sorted_measure = e_distance(A)
-    print(sorted_measure)
-
-def A():
-    sorted_deck = [i for i in range(52)]
-    deck = sorted_deck[:]
-    
-    shuffle_count = 100
-    
-    num_of_repeats = 1000
-    averages = [0 for _ in range(shuffle_count)]
-    for _ in range(num_of_repeats):
-        for i in range(shuffle_count):
-            deck = shuffle(deck)
-            sorted_measure = e_distance(deck)
-            averages[i] += sorted_measure
-        deck = sorted_deck[:]
-    
-    averages = list(map(lambda x: x/num_of_repeats, averages))
-    for x in averages: print(x)
+def request_test_repeat_count() -> int:
+    return request_int('Test repeat count')
 
 def main():
     choice = input('Generate new datasets (y/n): ').lower()
-    if choice == 'y':
-        data.clear()
-        # TODO (von-vic): Generate new datasets and store them into a folder called
-        # `shuffles`
-        data.insert('0.txt', [(1,2)])
-        pass
+    averages: list
+    if choice == 'y' or choice == 'yes':
+        # ======================================================================
+        # Request parameters
+        # ======================================================================
+        shuffle_count = request_shuffle_count()
+        repeat_count = request_test_repeat_count()
+
+        averages = deck.generate_averages(shuffle_count, repeat_count)
+        data.insert('averages.txt', averages)
+    elif choice == 'n' or choice == 'no':
+        averages = data.read('averages.txt')
     else:
-        print(data.read('0.txt'))
-        # TODO (von-vic): Read from the `shuffles` folder.
-        pass
+        raise ValueError(f'{choice} is not a valid choice')
+    print(averages)
 
 if __name__ == '__main__':
     main()
