@@ -26,7 +26,7 @@ def print_sorted_measurement(A: list):
     sorted_measure = e_distance(A)
     print(sorted_measure)
 
-def main():
+def A():
     sorted_deck = [i for i in range(52)]
     deck = sorted_deck[:]
     
@@ -43,6 +43,10 @@ def main():
     
     averages = list(map(lambda x: x/num_of_repeats, averages))
     for x in averages: print(x)
+
+def main():
+    choice = input('Generate new datasets (y/n): ').lower()
+    print(choice)
 
 if __name__ == '__main__':
     main()
