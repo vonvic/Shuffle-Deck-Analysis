@@ -31,3 +31,6 @@ Card: 10
 Actual position: 51
 Euclidean distance: sqrt(pow(51-10, 2)) = 41
 ```
+
+Example Dataset:
+![Example Plot](images/example_plot.png)
