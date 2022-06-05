@@ -51,6 +51,7 @@ def main():
         data.clear()
         # TODO (von-vic): Generate new datasets and store them into a folder called
         # `shuffles`
+        data.insert('0.txt', [(1,2)])
         pass
     else:
         # TODO (von-vic): Read from the `shuffles` folder.
