@@ -1,5 +1,5 @@
 # Riffle Shuffle Deck Analysis
-This program is used to analyze the effect of repeatedly riffle shuffling a standard deck of 52 cards. It is known that seven riffle shuffles randomize a deck, where any more than seven don't affect the randomness of a deck.[^1]
+It is known that seven riffle shuffles randomize a deck, where any more than seven don't affect the randomness of a deck.[^1]. Thus, this program is used to analyze the effect of repeatedly riffle shuffling a standard deck of 52 cards by generating a random dataset of shuffles and presenting a scatter plot to visualize the data. 
 
 [^1]: https://math.hmc.edu/funfacts/seven-shuffles/
 
