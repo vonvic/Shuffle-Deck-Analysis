@@ -34,3 +34,6 @@ Euclidean distance: sqrt(pow(51-10, 2)) = 41
 
 Example Dataset:
 ![Example Plot](images/example_plot.png)
+
+## Todo:
+Graph trendlines on both graphs.
