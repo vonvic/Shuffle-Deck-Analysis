@@ -39,7 +39,7 @@ def main():
         raise ValueError(f'{choice} is not a valid choice')
     print(averages)
     title = 'Measure of the Effect of Number of Riffle Shuffles on Randomizing A Deck'
-    graph.plot(averages, title, 'Shuffle Count', 'Average of sortedness (lower the better)')
+    graph.plot(averages, title, 'Shuffle Count', 'Average of sortedness (lower is more sorted)')
 
 if __name__ == '__main__':
     main()
