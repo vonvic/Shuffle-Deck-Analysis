@@ -36,7 +36,7 @@ Example Dataset:
 ![Example Plot](images/example_plot.png)
 
 Example Video Demo
-[![Video Demo](https://imgur.com/a/wZ7mCgu)](https://www.youtube.com/watch?v=Ay6gHaBSjPo "Riffle Shuffle Deck Analyzer Demo")
+[![Video Demo](https://i.imgur.com/WypJyvR.jpeg)](https://www.youtube.com/watch?v=Ay6gHaBSjPo "Riffle Shuffle Deck Analyzer Demo")
 
 ## Todo:
 Graph trendlines on both graphs.
